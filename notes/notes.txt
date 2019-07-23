@@ -1,0 +1,57 @@
+Install nodejs (nodejs.org). Nodejs includes npm, the node package manager.
+Install the angular cli  (the ng command)
+   $ npm install -g @angular/cli
+
+Create a base angular project
+   $ ng new <project name>
+Update dependencies
+   $ cd <project name>
+   $ npm install
+
+Compile and serve up the app in a local server
+   $ ng serve -o
+
+
+Adding Components
+   $ ng g c <componentname>
+   $ ng g c my-component
+
+   $ ng g c --help 
+
+   - By default, creating a component creates 3 files;   
+      - .ts, .css, .spec.ts, .html
+
+
+// HTML Code
+
+Binding and Directives:
+
+   <h1>My Products</h1>
+   <!-- Binding -->
+   <input type="text"
+         [(ngModel)]="productName">
+   <button (click)="productName = 'A Tree'"
+         [disabled]="false">Change Text</button>
+   <div>{{ productName }}</div>
+
+   <!-- Directives -->
+   <button [disabled]="productName == ''"
+         (click)="addProduct()">Add Product</button>
+   <div *ngFor="let p of products">{{ p }}</div>
+
+
+// Typescript Code
+
+   productName = "ice cream";
+   products = ['A Book', 'A Tree'];
+
+   constructor() { }
+
+   ngOnInit() {
+   }
+
+   addProduct() {
+      this.products.push(this.productName);
+   }
+}
+

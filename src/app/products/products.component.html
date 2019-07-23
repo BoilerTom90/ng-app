@@ -1,0 +1,12 @@
+<h1>My Products</h1>
+<!-- Binding -->
+<input type="text"
+       [(ngModel)]="productName">
+<button (click)="productName = 'A Tree'"
+        [disabled]="false">Change Text</button>
+<div>{{ productName }}</div>
+
+<!-- Directives -->
+<button [disabled]="productName == ''"
+        (click)="addProduct()">Add Product</button>
+<div *ngFor="let p of products">{{ p }}</div>
