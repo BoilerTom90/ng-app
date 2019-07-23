@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
 
    productName = "ice cream";
-   products = ['A Book', 'A Tree'];
+   products = [];
 
    constructor() { }
 
@@ -17,5 +17,9 @@ export class ProductsComponent implements OnInit {
 
    addProduct() {
       this.products.push(this.productName);
+   }
+
+   onRemoveProduct(product: string) {
+      this.products = this.products.filter(p => p !== this.productName);
    }
 }
